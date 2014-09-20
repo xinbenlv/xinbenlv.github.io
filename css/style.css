@@ -475,7 +475,12 @@ header{
 	text-decoration:none;
 }
 
-
+#value_aboutme_profile_pic {
+    width:294px;
+    height:294px;
+    overflow:hidden;
+    background-size: cover;
+}
 
 /*----------------------------------------------------
  7.	Technical Skills Style

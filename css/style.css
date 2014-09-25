@@ -1088,6 +1088,10 @@ ul.portfolioContainer li:hover span.hoverBox .linKed{
 }
 
 
+/** Modal **/
+.modal {
+    color: black;
+}
 
 
 

@@ -58,7 +58,7 @@
                     <li class="menuItem"><a href="#technical">Skills</a></li>
                     <li class="menuItem"><a href="#exprience">Experience</a></li>
                     <li class="menuItem"><a href="#education">Education</a></li>
-                    <li class="menuItem"><a href="#protfolio">Portfolio</a></li>
+                    <li class="menuItem" id="menu_portfolio"><a href="#portfolio">Portfolio</a></li>
                     <li class="menuItem"><a href="#contact">Contact</a></li>
                   </ul>
                 </div>
@@ -102,9 +102,10 @@
         <h2>Technical Skills</h2>
         <p>I can say i’m quite good at</p>
       </div>
-      <div class="row">
-        <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4 skillsArea">
-          <div id="value_skill_template" class=" col-xs-12 col-sm-6 col-md-6 col-lg-6 skills"> <span class="chart skilBg" data-percent="90"> <span class="percent"></span> </span>
+      <div class="row" id="value_skill_parent">
+        <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4 skillsArea" id="value_skill_child">
+          <div class=" col-xs-12 col-sm-6 col-md-6 col-lg-6 skills">
+              <span class="chart skilBg" data-percent="90"> <span class="percent"></span> </span>
             <h4>Photoshop</h4>
             <p>Donec accumsan ligula vitae mag na curabitur id</p>
           </div>
@@ -133,12 +134,7 @@
             <p>Donec accumsan ligula vitae mag na curabitur id</p>
           </div>
         </div>
-        <div class=" col-xs-12 col-sm-4 col-md-4 col-lg-4 skillsArea">
-          <div class=" col-xs-12 col-sm-6 col-md-6 col-lg-6 skills"> <span class="chart skilBg" data-percent="65"> <span class="percent"></span> </span>
-            <h4>PHP / MySQL</h4>
-            <p>Donec accumsan ligula vitae mag na curabitur id</p>
-          </div>
-        </div>
+
       </div>
     </div>
   </section>
@@ -150,7 +146,8 @@
         <h2>Work Experience</h2>
         <p>My previous associations</p>
       </div>
-      <div class="row workDetails">
+      <div id="value_experience_parent">
+      <div class="row workDetails" id="value_experience_child">
         <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
           <div class="workYear">Mar,2011<br>
             Present</div>
@@ -192,6 +189,7 @@
           </div>
         </div>
       </div>
+      </div>
     </div>
   </section>
   <!--exprience end-->
@@ -202,7 +200,8 @@
         <h2>Education & Diplomas</h2>
         <p>What I have done in my academic career</p>
       </div>
-      <div class="row workDetails">
+      <div id="value_education_parent">
+      <div class="row workDetails" id="value_education_child">
         <div class="col-xs-12 col-sm-3 col-md-2 col-lg-2">
           <div class="workYear">Mar,2010</div>
         </div>
@@ -241,11 +240,12 @@
           </div>
         </div>
       </div>
+      </div>
     </div>
   </section>
   <!--education end-->
-  <!--protfolio start-->
-  <section class="protfolio" id="protfolio">
+  <!--portfolio start-->
+  <section class="portfolio" id="portfolio">
     <div class="container">
       <div class="heading">
         <h2>Portfolio</h2>
@@ -287,7 +287,7 @@
       </ul>
     </div>
   </section>
-  <!--protfolio end-->
+  <!--portfolio end-->
   <!--contact start-->
 
   <section class="contactDetails" id="contact">
@@ -305,8 +305,8 @@
   <!--footer start-->
   <section class="footer" id="footer">
     <div class="container">
-      <ul>
-        <li><a href="#"><i class="fa fa-twitter fa-2x"></i></a></li>
+      <ul id="value_sns_parent">
+        <li id="value_sns_child"><a href="#"><i class="fa fa-twitter fa-2x"></i></a></li>
         <li><a href="#"><i class="fa fa-facebook fa-2x"></i></a></li>
         <li><a href="#"><i class="fa fa-linkedin fa-2x"></i></a></li>
         <li><a href="#"><i class="fa fa-pinterest fa-2x"></i></a></li>
@@ -332,22 +332,180 @@
 <script type="text/javascript" src="js/stickUp.js"></script>
 <script type="text/javascript">
 jQuery(function($) {
-$(document).ready( function() {
-  //enabling stickUp on the '.navbar-wrapper' class
-  $('.navbar-wrapper').stickUp({
-				parts: {
-				  0: 'banner',
-				  1: 'aboutme',
-				  2: 'technical',
-				  3: 'exprience',
-				  4: 'education',
-				  5: 'protfolio',
-				  6: 'contact'
-				},
-				itemClass: 'menuItem',
-				itemHover: 'active',
-				topMargin: 'auto'
-			  });
+$(document).ready(function() {
+    //enabling stickUp on the '.navbar-wrapper' class
+    var stickUp  = function (parts) {
+        $('.navbar-wrapper').stickUp({
+            parts: parts,
+            itemClass: 'menuItem',
+            itemHover: 'active',
+            topMargin: 'auto'
+        });
+    };
+    stickUp([
+        'banner',
+        'aboutme',
+        'technical',
+        'exprience',
+        'education',
+        'portfolio',
+        'contact'
+    ]);
+    var values = {
+        name: "Zainan Victor Zhou",
+        subtitle: "Crafting the Best Web Experiences",
+        job_title: "Google AdWords FrontEnd Developer",
+        profile_pic: "images/zzn_profile.jpg",
+        intro: "I am a passionate software engineer Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.  cillum dolore eu fugiat nulla pariatur. olore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+        tech_skills: [
+            {
+                caption: "Android",
+                percentage: 90,
+                subcaption: "Donec accumsan ligula vitae mag na curabitur id"
+            },
+            {
+                caption: "Java",
+                percentage: 80,
+                subcaption: "Donec accumsan ligula vitae mag na curabitur id"
+            },
+            {
+                caption: "HTML5 / CSS3 / JS",
+                percentage: 70,
+                subcaption: "Donec accumsan ligula vitae mag na curabitur id"
+            },
+            {
+                caption: "jQuery",
+                percentage: 40,
+                subcaption: "Donec accumsan ligula vitae mag na curabitur id"
+            },
+            {
+                caption: "NodeJS",
+                percentage: 50,
+                subcaption: "Donec accumsan ligula vitae mag na curabitur id"
+            },
+        ],
+        working_experience: [{
+            start: "Sep 2009",
+            end:"May 2010",
+            company: "Microsoft Research Asia",
+            title: "Research Intern",
+            desc: "Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quom placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui faorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius."
+        }, {
+            start: "Sep 2010",
+            end:"May 2012",
+            company: "Johns Hopkins University",
+            title: "Research/Teaching Assistent",
+            desc: "Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quom placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui faorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius."
+        }, {
+                start: "Oct 2012",
+                end: "Present",
+                company: "Google Inc",
+                title: "Software Engineer",
+                desc: "Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quom placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui faorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius."
+        }],
+        education_experience: [{
+            start: "2006",
+            end:"2010",
+            company: "Tsinghua University",
+            title: "Bachlor in Engineering, Automation",
+            desc: "Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quom placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui faorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius."
+        }, {
+            start: "2010",
+            end:"2012",
+            company: "Johns Hopkins University",
+            title: "Master in Engingeering, Computer Science",
+            desc: "Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quom placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui faorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius."
+        }],
+        portfolio: [],
+        email: "zzn@zzn.im",
+        website: "www.zzn.im",
+        sns: [{
+            url: "https://www.linkedin.com/in/zainanvictorzhou/",
+            icon_class: "fa-linkedin"
+        }, {
+            url: "https://google.com/+ZainanVictorZhou",
+            icon_class: "fa-google-plus"
+        },]
+    };
+    var applyValues = function(values) {
+        $("#value_title").text(values["name"]);
+        $("#value_subtitle").text(values["subtitle"]);
+        $("#value_aboutme_name").text(values["name"]);
+        $("#value_aboutme_job_title").text(values["job_title"]);
+        $("#value_aboutme_profile_pic").css('background-image', 'url("' + values["profile_pic"] + '")');
+        $("#value_aboutme_intro").empty();
+        $("#value_aboutme_intro").append("<p>" + values["intro"] + "</p>");
+        $("#value_email").text(values["email"]);
+        $("#value_email").attr("href", "mailto://" + values["email"]);
+        $("#value_website").text(values["website"]);
+        $("#value_website").attr("href", "http://" + values["website"]);
+
+        var skill_template = $("#value_skill_child").clone();
+        $("#value_skill_parent").empty();
+        for(var i=0; i<values.tech_skills.length; i++) {
+            var tech_skill = values.tech_skills[i];
+            console.log(tech_skill);
+            skill_template.find("h4").text(tech_skill.caption);
+            skill_template.find(".skilBg").attr("data-percent", tech_skill.percentage);
+            skill_template.find("p").text(tech_skill.subcaption);
+            $("#value_skill_parent").append(skill_template);
+            skill_template = skill_template.clone();
+        }
+
+        if (values.portfolio.length > 0) {
+            //TODO(zzn) update portfolio
+        } else {
+            $("#portfolio").remove();
+            $("#menu_portfolio").remove();
+            stickUp([
+                'banner',
+                'aboutme',
+                'technical',
+                'exprience',
+                'education',
+                'contact'
+            ]);
+        }
+
+        var experience_template  = $("#value_experience_child").clone();
+        $("#value_experience_parent").empty();
+        for(var i=0;i<values.working_experience.length;i++) {
+            var experience = values.working_experience[i];
+            experience_template.find(".workYear").html(experience.start + "<br>" + experience.end);
+            experience_template.find("h4").text(experience.company);
+            experience_template.find("h5").text(experience.title);
+            experience_template.find("p").text(experience.desc);
+            $("#value_experience_parent").append(experience_template);
+            experience_template = experience_template.clone();
+        }
+
+        var education_template  = $("#value_education_child").clone();
+        $("#value_education_parent").empty();
+        for(var i=0;i<values.education_experience.length;i++) {
+            var education = values.education_experience[i];
+            education_template.find(".workYear").html(education.start + "<br>" + education.end);
+            education_template.find("h4").text(education.company);
+            education_template.find("h5").text(education.title);
+            education_template.find("p").text(education.desc);
+            $("#value_education_parent").append(education_template);
+            education_template = education_template.clone();
+        }
+
+        var sns_template = $("#value_sns_child").clone();
+
+        $("#value_sns_parent").empty();
+        for(var i=0;i<values.sns.length;i++) {
+            var sns = values.sns[i];
+            sns_template.find("a").attr("href", sns.url);
+            sns_template.find(".fa").removeClass().addClass("fa fa-2x").addClass(sns.icon_class);
+
+            $("#value_sns_parent").append(sns_template);
+            sns_template = sns_template.clone();
+        }
+    };
+
+    applyValues(values);
+
 });
 
 $( ".navbar.navbar-inverse.navbar-static-top a" ).click(function() {
@@ -368,37 +526,6 @@ $( ".navbar-toggle" ).click(function() {
   $( ".navbar-collapse" ).removeClass( "hideClass" );
 });
 
-    var values = {
-        "name": "Zainan Victor Zhou",
-        "subtitle": "Crafting the Best Web Experiences",
-        "job_title": "Google AdWords FrontEnd Developer",
-        "profile_pic": "images/zzn_profile.jpg",
-        "intro": "I am a passionate software engineer Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.  cillum dolore eu fugiat nulla pariatur. olore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-        "tech_skills": [
-            "Android",
-            "Java",
-            "HTML5 / CSS3 / JS",
-            "jQuery",
-            "NodeJS",
-        ],
-        "email": "zzn@zzn.im",
-        "website": "www.zzn.im"
-    };
-    var applyValues = function(values) {
-        $("#value_title").text(values["name"]);
-        $("#value_subtitle").text(values["subtitle"]);
-        $("#value_aboutme_name").text(values["name"]);
-        $("#value_aboutme_job_title").text(values["job_title"]);
-        $("#value_aboutme_profile_pic").css('background-image', 'url("' + values["profile_pic"] + '")');
-        $("#value_aboutme_intro").empty();
-        $("#value_aboutme_intro").append("<p>" + values["intro"] + "</p>");
-        $("#value_email").text(values["email"]);
-        $("#value_email").attr("href", "mailto://" + values["email"]);
-        $("#value_website").text(values["website"]);
-        $("#value_website").attr("href", "http://" + values["website"]);
-    };
-
-    applyValues(values);
 });
 </script>
 <!--for portfoli filter jquary-->

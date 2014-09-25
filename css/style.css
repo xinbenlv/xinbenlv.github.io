@@ -19,7 +19,7 @@
 	7. Technical Skills Style
 	8. Work Experience Style
 	9. Education Style
-	10. Protfolio Style
+	10. portfolio Style
 	11. Get in tuch Style
 	12. Footer Style
 	13. Responsive style
@@ -699,21 +699,21 @@ header{
 
 
 /*----------------------------------------------------
- 10. Protfolio Style
+ 10. portfolio Style
 ------------------------------------------------------*/
-.protfolio{
+.portfolio {
 	background:#2bb3dd;
 }
-.protfolio .container{
+.portfolio .container{
 	padding-top:85px ;
 	padding-bottom:90px ;
 }
 
-.protfolio .heading p{
+.portfolio .heading p{
 	padding-bottom:41px;
 }
 
-.protfolio h4{
+.portfolio h4{
 	font-weight:700;
 }
 
